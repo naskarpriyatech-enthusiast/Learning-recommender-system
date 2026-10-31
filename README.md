@@ -239,7 +239,11 @@ Deployment steps:
 6. Set the main file path to `app.py`.
 7. Click Deploy.
 
-**Live Demo:** Coming Soon
+## Live Demo
+
+Try the application here:
+
+https://learning-recommender-system-priya.streamlit.app
 
 **GitHub Repository:**  
 https://github.com/naskarpriyatech-enthusiast/Learning-recommender-system
@@ -267,3 +271,5 @@ GitHub: [naskarpriyatech-enthusiast](https://github.com/naskarpriyatech-enthusia
 ⭐ If you find this project interesting, consider giving this repository a star!
 
 *Built as an academic machine learning project to explore personalized learning recommendations and data-driven decision-making.*
+
+

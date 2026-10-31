@@ -2,8 +2,9 @@
 # Python cache
 __pycache__/
 *.py[cod]
+*.pyo
 
-# Virtual environment
+# Virtual environments
 .venv/
 venv/
 env/
@@ -11,7 +12,12 @@ env/
 # Streamlit secrets
 .streamlit/secrets.toml
 
-# Dataset files
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Dataset exclusions
 data/raw/
 data/processed/
 
@@ -23,7 +29,6 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# Environment variables
-.env
-.env.*
-!.env.example
+# IDE settings
+.vscode/
+

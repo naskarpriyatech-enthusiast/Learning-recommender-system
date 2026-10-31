@@ -1,145 +1,269 @@
-# Learning Recommender System
+# 🎓 Learning Recommender System
 
-A machine-learning web app that compares learner profiles and recommends relevant next courses. Explore the dataset, enter a learner profile, and see ranked recommendations with match scores and explanations.
+### Personalized Learning Recommendations Using Machine Learning
 
-> **GitHub repository description:** A Streamlit machine-learning app that recommends next courses using learner similarity, course history, and profile data.
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?logo=streamlit)](https://streamlit.io/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Machine%20Learning-orange?logo=scikitlearn)](https://scikit-learn.org/)
+[![Status](https://img.shields.io/badge/Project-Completed-success)]()
 
-## Live Demo
+## 📌 Project Overview
 
-**Status: Not deployed yet.** Once you deploy this repository using the steps below, replace this line with your public Streamlit app URL:
+The **Learning Recommender System** is a machine-learning-based web application designed to provide personalized learning recommendations based on individual learner profiles, academic performance, learning preferences, and course history.
 
-`https://<your-app-name>.streamlit.app`
+The system analyzes learner information and identifies similar learning profiles to recommend relevant next courses. It also provides recommendation match scores and explanations through an interactive Streamlit dashboard.
 
-## What the App Does
+The primary goal is to make learning more personalized, data-driven, and accessible.
 
-The dashboard has five sections:
+## 🎯 Project Objectives
 
-1. **Student Input** — Load a learner from the dataset or enter a profile, including current and completed courses, learning level and preference, study hours, and performance score. Choose to receive 3–10 recommendations.
-2. **Loading and Processing** — Review dataset counts, course labels, excluded rows, and a sample of learner records.
-3. **EDA Graphs** — Explore four dataset charts:
-   - **Performance score distribution:** how learner scores are spread across the dataset.
-   - **Learning preferences:** number of learners in each preference category.
-   - **Study hours vs. performance:** relationship between reported study hours and scores, with a fitted trend line.
-   - **Recorded next-course labels:** frequency of each recommendation label in the source data.
-4. **Recommendation Output** — Review ranked course codes, match scores, and explanations. Charts show each recommendation's score and compare the learner's study hours and performance with similar learners.
-5. **Recommended Resources** — Shows the recommended course codes and clarifies what resource information is available in the dataset.
+- Analyze learner profiles and academic behaviour.
+- Understand relationships between learner characteristics and course choices.
+- Identify learners with similar profiles.
+- Recommend relevant next courses using machine learning.
+- Display ranked recommendations with match scores.
+- Provide interactive visualizations for better understanding of learner data.
 
-## How Recommendations Work
+## ✨ Key Features
 
-1. The app validates the learner data and converts course history, course/level/preference categories, study hours, and performance into features.
-2. Training excludes records whose recorded recommendation is the learner's current course or a course they have already completed.
-3. A `DictVectorizer` encodes the features, and a cosine-distance nearest-neighbor model finds up to 20 similar learners.
-4. Their recorded next-course labels receive votes weighted by learner similarity. The app removes the current and completed courses, then returns the highest-ranked eligible courses.
-5. Each result includes a match score and a short explanation based on how many similar learners selected that course and their average performance.
+### 1. Student Input
+- Load learner information from the dataset.
+- Enter a learner profile manually.
+- Select current and completed courses.
+- Specify learning level and preferences.
+- Enter study hours and performance scores.
+- Choose between 3 and 10 recommendations.
 
-For an existing learner, the app excludes that learner from their own nearest-neighbor results. The model is evaluated with a stratified 80/20 holdout split; after evaluation, the saved model is fitted on all eligible records.
+### 2. Data Loading and Processing
+- Load the learning dataset.
+- Validate required columns.
+- Review dataset statistics.
+- Display learner records and course labels.
+- Handle inconsistent recommendation targets.
 
-## Evaluation
+### 3. Exploratory Data Analysis (EDA)
+The dashboard includes four visualizations:
 
-Current results from [`models/metrics.json`](models/metrics.json), based on 1,000 dataset rows:
+- Performance Score Distribution
+- Learning Preferences Distribution
+- Study Hours vs. Performance
+- Recorded Next-Course Recommendation Distribution
 
-| Metric | Similar-learner model | Popularity baseline |
-| --- | ---: | ---: |
-| Top-1 accuracy | 11.19% | 10.49% |
-| Hit rate at 5 | 53.15% | 45.45% |
-| Mean reciprocal rank at 5 | 0.2472 | Not calculated |
+### 4. Personalized Recommendation Engine
+- Compares learner profiles.
+- Identifies similar learners.
+- Generates ranked course recommendations.
+- Calculates recommendation match scores.
+- Provides explanations for recommendations.
 
-The model uses 714 eligible records after excluding 286 inconsistent recommendation targets. These are dataset-specific offline results, not a guarantee of real-world recommendation quality.
+### 5. Recommended Resources
+- Displays recommended course codes.
+- Shows recommendation rankings.
+- Explains available dataset information and limitations.
 
-## Tech Stack
+## 🧠 Machine Learning Methodology
 
-- Python
-- Streamlit
-- pandas and NumPy
-- scikit-learn
-- Matplotlib
+The project follows a structured machine learning workflow:
 
-## Run Locally
+1. Dataset loading and inspection.
+2. Data cleaning and validation.
+3. Exploratory Data Analysis.
+4. Feature engineering.
+5. Learner profile preprocessing.
+6. Model training and evaluation.
+7. Recommendation ranking.
+8. Model serialization and integration.
+9. Streamlit dashboard development.
 
-The dataset and trained model are included in this repository. From the project root:
+The recommendation engine uses learner similarity, course history, and profile information to generate personalized recommendations.
 
-### Windows PowerShell
+## 📊 Model Evaluation
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python train_model.py
-streamlit run app.py
-```
+The model was evaluated using a stratified 80/20 holdout split.
 
-### macOS or Linux
+Current evaluation results are based on 1,000 dataset rows.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python train_model.py
-streamlit run app.py
-```
+| Evaluation Metric | Similar-Learner Model | Popularity Baseline |
+|---|---:|---:|
+| Top-1 Accuracy | 11.19% | 10.49% |
+| Hit Rate at 5 | 53.15% | 45.45% |
+| Mean Reciprocal Rank at 5 | 0.2472 | Not calculated |
 
-Streamlit opens the app at `http://localhost:8501`. Run `python train_model.py` again whenever you change the dataset or training code; this updates `models/recommender_model.joblib` and `models/metrics.json`.
+**Dataset processing summary:**
+- Total dataset records: 1,000
+- Eligible records: 714
+- Excluded inconsistent recommendation targets: 286
 
-## Deploy a Public Demo
+The results indicate that the similar-learner model outperforms the popularity baseline on Top-1 Accuracy and Hit Rate at 5.
 
-This project is ready to deploy on [Streamlit Community Cloud](https://share.streamlit.io/):
+These are offline, dataset-specific evaluation results and do not guarantee real-world recommendation quality.
 
-1. Push this project to a GitHub repository (see the next section).
-2. Sign in to Streamlit Community Cloud with GitHub and choose **Create app**.
-3. Select your repository and the `main` branch.
-4. Set the app file path to `app.py`, then deploy.
-5. When deployment succeeds, copy the public `https://....streamlit.app` URL into the **Live Demo** section above and the GitHub repository's website field.
-
-The app expects `data/learning_path_dataset.csv`, `models/recommender_model.joblib`, `assets/style.css`, and `.streamlit/config.toml` to be present in the repository. They are included here. Keep virtual environments and secrets out of Git; `.gitignore` already excludes them.
-
-## Publish to GitHub
-
-The Git repository root is this project folder, `Learning recommender system` (the inner folder containing `app.py` and `requirements.txt`). Create a new GitHub repository, then run these commands from this folder. Replace the placeholders with your GitHub username and repository name:
-
-```powershell
-git add .
-git commit -m "Prepare learning recommender project"
-git branch -M main
-git remote add origin https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git
-git push -u origin main
-```
-
-If Git reports that `origin` already exists, update it with `git remote set-url origin https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git` instead of adding it again. On GitHub, add a short repository description, set the website to your deployed Streamlit URL, and add topics such as `machine-learning`, `recommender-system`, `python`, and `streamlit`.
-
-## Project Structure
+## 🗂️ Project Structure
 
 ```text
-.
-├── app.py                         # Streamlit dashboard and charts
-├── train_model.py                 # Train, evaluate, and save the recommender
-├── requirements.txt               # Python dependencies
-├── .gitignore                     # Excludes local environments and secrets
+Learning-Recommender-System/
+│
+├── app.py
+├── train_model.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
 ├── .streamlit/
-│   └── config.toml                # App theme and usage-statistics setting
+│   └── config.toml
+│
 ├── assets/
-│   └── style.css                  # Dashboard styling
+│   └── style.css
+│
 ├── data/
-│   └── learning_path_dataset.csv  # Learner profiles and course labels
+│   └── learning_path_dataset.csv
+│
 ├── docs/
-│   └── PROJECT_DOCUMENTATION.md   # Detailed data, model, and UI notes
+│   └── PROJECT_DOCUMENTATION.md
+│
 ├── models/
-│   ├── metrics.json               # Latest evaluation metrics
-│   └── recommender_model.joblib   # Saved model bundle
+│   ├── metrics.json
+│   └── recommender_model.joblib
+│
 └── src/
-    ├── config.py                  # Shared paths and settings
-    ├── data_loader.py             # CSV loading and validation
-    ├── eda.py                     # Dataset chart creation
-    ├── features.py                # Learner feature construction
-    ├── recommender.py             # Similarity model and ranking
-    ├── resources.py               # Dataset resource-data notice
-    ├── ui_components.py           # Shared dashboard UI helpers
-    └── validators.py              # Learner profile validation
+    ├── config.py
+    ├── data_loader.py
+    ├── eda.py
+    ├── features.py
+    ├── recommender.py
+    ├── resources.py
+    ├── ui_components.py
+    └── validators.py
 ```
 
-## Dataset and Limitations
+## 🛠️ Technology Stack
 
-The app uses `data/learning_path_dataset.csv`, not the OULAD dataset. Required columns are `Learner_ID`, `Current_Course`, `Completed_Courses`, `Learning_Level`, `Learning_Preference`, `Time_Spent_Hours`, `Performance_Score`, and `Next_Course_Recommendation`.
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive web application |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical computations |
+| Scikit-learn | Machine learning and preprocessing |
+| Matplotlib | Data visualization |
+| Joblib | Model serialization |
+| CSS | Dashboard styling |
+| Git & GitHub | Version control and project hosting |
 
-The dataset contains course codes and learner attributes, but no course URLs, descriptions, learning materials, or resource links. Therefore, the app recommends **course codes**, not specific videos or course pages. See [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) for detailed data validation, training, evaluation, and implementation notes.
+## 📁 Dataset Information
+
+The project uses:
+
+`data/learning_path_dataset.csv`
+
+Required dataset columns:
+
+- `Learner_ID`
+- `Current_Course`
+- `Completed_Courses`
+- `Learning_Level`
+- `Learning_Preference`
+- `Time_Spent_Hours`
+- `Performance_Score`
+- `Next_Course_Recommendation`
+
+The dataset contains learner attributes, course information, and recommendation labels.
+
+**Dataset limitation:** The dataset does not contain actual course URLs, descriptions, videos, or learning material links. Therefore, the application recommends course codes rather than direct learning resources.
+
+## 🚀 Installation and Setup
+
+### Prerequisites
+
+- Python installed
+- Visual Studio Code
+- Git
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/naskarpriyatech-enthusiast/Learning-recommender-system.git
+
+cd Learning-recommender-system
+```
+
+### Step 2: Create a Virtual Environment
+
+**Windows PowerShell**
+
+```bash
+py -m venv .venv
+```
+
+### Step 3: Activate the Environment
+
+```bash
+.\.venv\Scripts\Activate.ps1
+```
+
+### Step 4: Install Dependencies
+
+```bash
+python -m pip install --upgrade pip
+
+pip install -r requirements.txt
+```
+
+### Step 5: Train the Recommendation Model
+
+```bash
+python train_model.py
+```
+
+### Step 6: Run the Streamlit Application
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser:
+
+`http://localhost:8501`
+
+## ☁️ Deployment
+
+The application is designed for deployment using **Streamlit Community Cloud**.
+
+Deployment steps:
+
+1. Open Streamlit Community Cloud.
+2. Sign in using GitHub.
+3. Select Create App.
+4. Choose this GitHub repository.
+5. Select the `main` branch.
+6. Set the main file path to `app.py`.
+7. Click Deploy.
+
+**Live Demo:** Coming Soon
+
+**GitHub Repository:**  
+https://github.com/naskarpriyatech-enthusiast/Learning-recommender-system
+
+## 🔮 Future Improvements
+
+- Integrate larger and more diverse learner datasets.
+- Improve recommendation accuracy.
+- Add course descriptions and direct learning links.
+- Introduce advanced recommendation algorithms.
+- Add user authentication and learner progress tracking.
+- Develop personalized learning paths.
+- Improve dashboard functionality and user experience.
+
+## 👩‍💻 Author
+
+**Priya Naskar**
+
+BCA Student | Aspiring Software Developer | Machine Learning Enthusiast
+
+GitHub: [naskarpriyatech-enthusiast](https://github.com/naskarpriyatech-enthusiast)
+
+---
+
+⭐ If you find this project interesting, consider giving this repository a star!
+
+*Built as an academic machine learning project to explore personalized learning recommendations and data-driven decision-making.*

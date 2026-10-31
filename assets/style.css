@@ -1,0 +1,214 @@
+/* =========================================================
+   Personalized Learning Recommendation System - terminal UI
+   Loaded by app.py via ui_components.load_css()
+   ========================================================= */
+
+:root {
+  --bg: #04060C;
+  --panel-bg: #070B14;
+  --panel-border: #1D2B45;
+  --panel-green: #7BC74D;
+  --pill-bg: #0E1A33;
+  --badge-border: #6CB6FF;
+  --table-line: #2B3A57;
+  --text: #E6EDF3;
+  --dim: #8B98B0;
+  --yellow: #F5D547;
+  --green: #4ADE80;
+  --red: #FF5A5A;
+  --blue: #5BA8FF;
+  --orange: #FFA02E;
+  --mono: "Consolas", "Courier New", "SFMono-Regular", Menlo, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+/* ---------- Streamlit page chrome ---------- */
+.stApp { background: var(--bg); }
+#MainMenu, footer { visibility: hidden; }
+[data-testid="stHeader"] { background: transparent; height: 0; pointer-events: none; }
+[data-testid="stToolbar"] { display: none; }
+.block-container {
+  max-width: 100% !important;
+  padding: 1.2rem 1.6rem 2rem 1.6rem !important;
+}
+[data-testid="stElementContainer"]:has(.section-nav) {
+  position: sticky;
+  top: 0.25rem;
+  z-index: 1000;
+  background: var(--bg);
+}
+.section-nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+}
+.section-nav a {
+  padding: 0.35rem 0.55rem;
+  color: var(--text);
+  background: var(--pill-bg);
+  border: 1px solid var(--table-line);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.section-nav a:hover {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+.section-anchor {
+  height: 0;
+  scroll-margin-top: 7rem;
+}
+
+/* ---------- Panels (st.container(key="panel_N")) ---------- */
+[class*="st-key-panel_"] {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 14px 18px 16px 18px;
+}
+.st-key-panel_3 {            /* EDA: header only, graphs sit on a white card */
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.st-key-panel_4 { border: 1.5px solid var(--panel-green); }
+.st-key-eda_card {
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+/* ---------- Numbered header: [1] Program Start ---------- */
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px 0;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid var(--badge-border);
+  border-radius: 7px;
+  background: #0B1730;
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.panel-title {
+  background: var(--pill-bg);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 5px 16px;
+  border-radius: 8px;
+}
+
+/* ---------- Terminal text ---------- */
+.term {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+.t-yellow { color: var(--yellow); }
+.t-green  { color: var(--green); }
+.t-red    { color: var(--red); }
+.t-blue   { color: var(--blue); }
+.t-dim    { color: var(--dim); }
+.t-bold   { font-weight: 700; }
+.banner {
+  display: inline-block;
+  color: var(--yellow);
+  font-weight: 700;
+  border: 1px solid #5E5420;
+  border-radius: 4px;
+  padding: 1px 8px;
+  margin-bottom: 10px;
+}
+
+/* ---------- Tables (dataset preview, recommendations) ---------- */
+.term-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+.term-table th,
+.term-table td {
+  border: 1px solid var(--table-line);
+  padding: 5px 10px;
+  text-align: left;
+  color: var(--text);
+}
+.term-table th { background: #0A1220; font-weight: 600; }
+.pri-high   { color: var(--red);    font-weight: 600; }
+.pri-medium { color: var(--orange); font-weight: 600; }
+.pri-low    { color: var(--green);  font-weight: 600; }
+
+/* ---------- Recommended resources ---------- */
+.res-title  { color: var(--yellow); font-weight: 700; margin-bottom: 6px; }
+.res-course { color: var(--text);   font-weight: 700; margin-top: 10px; }
+.res-line   { padding-left: 18px; }
+.res-line .lbl { font-weight: 700; color: var(--text); }
+.res-line .lnk { color: var(--blue); }
+
+/* ---------- Streamlit widgets inside panels ---------- */
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] label {
+  color: var(--text) !important;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.st-key-panel_1 [data-testid="stForm"] {
+  border: 0 !important;
+  padding: 0 !important;
+}
+.st-key-panel_1 [data-testid="stFormSubmitButton"] { margin-top: 0.75rem; }
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextArea"] textarea {
+  background: #05080F !important;
+  color: var(--green) !important;
+  border: 1px solid var(--panel-border) !important;
+  font-family: var(--mono) !important;
+}
+[data-baseweb="select"] > div {
+  background: #05080F !important;
+  border: 1px solid var(--panel-border) !important;
+  font-family: var(--mono);
+}
+[data-baseweb="select"] > div > div { color: var(--green) !important; }
+[data-baseweb="tag"] { background: #0E2A1F !important; }
+[data-baseweb="tag"] span { color: var(--green) !important; }
+[data-testid="stRadio"] label p {
+  font-family: var(--mono);
+  color: var(--text);
+}
+.stButton > button,
+[data-testid="stFormSubmitButton"] > button {
+  background: var(--pill-bg);
+  color: var(--yellow);
+  border: 1px solid var(--table-line);
+  border-radius: 6px;
+  font-family: var(--mono);
+}
+.stButton > button:hover,
+[data-testid="stFormSubmitButton"] > button:hover {
+  border-color: var(--yellow);
+  color: #FFFFFF;
+}

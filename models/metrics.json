@@ -1,0 +1,17 @@
+{
+  "rows_total": 1000,
+  "rows_excluded_invalid_target": 286,
+  "rows_used": 714,
+  "training_rows": 571,
+  "test_rows": 143,
+  "evaluated_test_rows": 143,
+  "course_count": 12,
+  "top_1_accuracy": 0.11188811188811189,
+  "hit_rate_at_3": 0.3356643356643357,
+  "hit_rate_at_5": 0.5314685314685315,
+  "mean_reciprocal_rank_at_5": 0.24720279720279717,
+  "majority_baseline_top_1_accuracy": 0.1048951048951049,
+  "majority_baseline_hit_rate_at_5": 0.45454545454545453,
+  "random_state": 42,
+  "test_size": 0.2
+}

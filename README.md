@@ -290,3 +290,109 @@ GitHub: [naskarpriyatech-enthusiast](https://github.com/naskarpriyatech-enthusia
 *Built as an academic machine learning project to explore personalized learning recommendations and data-driven decision-making.*
 
 
+## 📘 Project Report Structure
+
+The project report is organised into 14 chapters covering the complete development lifecycle of the **Learning Recommender System**, from problem identification and dataset analysis to machine learning implementation, evaluation, and future enhancements.
+
+### 1. Abstract
+Provides an overview of the Personalized Learning Recommender System, its purpose, the machine learning approach, technologies used, and the expected outcome. The system analyses learner profiles and recommends suitable next courses based on similarities between learners.
+
+### 2. Introduction
+Introduces personalized learning and the role of machine learning in modern educational platforms. Explains how learner characteristics, academic performance, learning preferences, and study behaviour can support more relevant learning recommendations.
+
+### 3. Problem Statement
+Explains the limitations of generic learning pathways, where learners may receive similar recommendations despite having different academic backgrounds, performance levels, and learning preferences. The project addresses this challenge through a data-driven recommendation approach.
+
+### 4. Objectives
+The main objectives are:
+- Analyse learner profiles and academic information.
+- Explore patterns in learning preferences and performance.
+- Prepare and transform learner data for machine learning.
+- Identify learners with similar learning characteristics.
+- Generate ranked next-course recommendations.
+- Present recommendation results through an interactive dashboard.
+
+### 5. Literature Review
+Discusses the concepts behind educational recommendation systems, collaborative filtering, content-based recommendation, similarity-based learning, and machine learning applications in education. Highlights how personalized recommendations can support learner engagement and decision-making.
+
+### 6. Existing and Proposed System
+
+**Existing System:**
+- Generic learning recommendations.
+- Limited consideration of individual learner profiles.
+- Difficulty identifying suitable next courses based on learner similarity.
+
+**Proposed System:**
+- Learner-profile-based recommendation.
+- Similarity-based learner retrieval.
+- Ranked next-course suggestions.
+- Interactive Streamlit dashboard with recommendation scores and visual analytics.
+
+### 7. Dataset Description
+Describes the `learning_path_dataset(4).csv` dataset used in the project. The supplied dataset contains 1,000 learner records and 8 columns. It includes learner-related information such as current course, learning level, learning preference, performance score, study time, and next-course recommendation labels.
+
+The chapter covers dataset structure, feature descriptions, data quality checks, and exploratory analysis.
+
+### 8. System Architecture
+Explains the major components and flow of the application:
+
+1. Dataset Input
+2. Data Validation and Processing
+3. Feature Engineering
+4. Feature Vectorization
+5. Similarity-Based Learner Retrieval
+6. Next-Course Recommendation
+7. Streamlit Dashboard and Results Visualization
+
+### 9. Methodology
+Describes the machine learning workflow, including:
+- Dataset inspection and validation.
+- Data preprocessing.
+- Feature selection and engineering.
+- Encoding categorical and numerical features.
+- Similarity calculation using cosine similarity.
+- Nearest-neighbour retrieval.
+- Similarity-weighted recommendation ranking.
+- Evaluation using an appropriate holdout procedure.
+
+### 10. Implementation
+Explains the practical development of the application using Python and Streamlit. Covers dataset loading, recommendation logic, dashboard development, interactive learner inputs, exploratory data analysis, recommendation generation, and deployment.
+
+### 11. Results and Evaluation
+Presents the actual outputs of the implemented system, including:
+- Dataset analysis and visualisations.
+- Learning-level and learning-preference distributions.
+- Performance-score analysis.
+- Study-time and performance relationship.
+- Ranked course recommendations.
+- Recommendation match-score visualisation.
+- Functional testing and evaluation results.
+
+Results are based on the supplied dataset and actual application outputs.
+
+### 12. Conclusion
+Summarises the development of the Personalized Learning Recommender System and explains how similarity-based recommendations can help identify relevant next-course options from learner data. Highlights the integration of machine learning with an interactive web application.
+
+### 13. Future Scope
+Potential improvements include:
+- Integration of larger real-world educational datasets.
+- Advanced hybrid recommendation techniques.
+- Deep learning-based recommendation models.
+- Learner progress tracking.
+- Personalized learning-resource recommendations.
+- User authentication and recommendation history.
+- Continuous model evaluation and improvement.
+
+### 14. References
+Technical concepts and development resources:
+- [Python Documentation](https://docs.python.org/3/)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [Scikit-learn Documentation](https://scikit-learn.org/stable/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [NumPy Documentation](https://numpy.org/doc/)
+
+---
+
+**Note:** This section provides the project report outline and chapter summaries. The complete academic report, PPT, and college submission documents are maintained separately and are not included in this repository.
+
+

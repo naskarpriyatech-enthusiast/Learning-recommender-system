@@ -285,10 +285,6 @@ GitHub: [naskarpriyatech-enthusiast](https://github.com/naskarpriyatech-enthusia
 
 ---
 
-⭐ If you find this project interesting, consider giving this repository a star!
-
-*Built as an academic machine learning project to explore personalized learning recommendations and data-driven decision-making.*
-
 
 ## 📘 Project Report Structure
 

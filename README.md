@@ -248,6 +248,23 @@ https://learning-recommender-system-priya.streamlit.app
 **GitHub Repository:**  
 https://github.com/naskarpriyatech-enthusiast/Learning-recommender-system
 
+## Application Screenshots
+
+### 1. Student Input
+![Student Input](screenshots/01_student_input.png)
+
+### 2. Processing
+![Processing](screenshots/02_processing.png)
+
+### 3. Exploratory Data Analysis
+![EDA](screenshots/03_eda.png)
+
+### 4. Learning Recommendations
+![Recommendations](screenshots/04_recommendations.png)
+
+### 5. Learning Resources
+![Resources](screenshots/05_resources.png)
+
 ## 🔮 Future Improvements
 
 - Integrate larger and more diverse learner datasets.
